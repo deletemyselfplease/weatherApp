@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <title>
+      Weather App
+    </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/WeatherStyle.css') }}">
+  </head>
+  <body>
+
+    <center>
+
+    <h1>Weather App | Input city name</h1>
+
+    <br>
+
+    <form method="POST" action="/search">
+      <input name="text">
+      <input type="submit">
+    </form>
+
+    <br>
+
+    <h2>{{ city }}</h2>
+    <h3>{{ errormsg }}</h3>
+
+
+
+      <article class="">
+        Temperature(C): &nbsp {{ temp }}
+        <br>
+      </article>
+
+
+      {% if pic == "Cloudy" %}
+      <img src="static/weather/cloudy.png" alt="cloudy" width="300" height="300">
+      {% elif pic == "Snowy" %}
+      <img src="static/weather/snow.png" alt="snow" width="300" height="300">
+      {% elif pic == "Rainy" %}
+      <img src="static/weather/rain.png" alt="rain" width="300" height="300">
+      {% elif pic == "+" %}
+      <img src="static/weather/sun.png" alt="clear" width="280" height="280">
+      {% elif pic == "Fogy" %}
+      <img src="static/weather/fog.png" alt="fog" width="300" height="300">
+
+
+      {% else %}
+
+
+      {% endif %}
+
+    </center>
+
+  </body>
+</html>
